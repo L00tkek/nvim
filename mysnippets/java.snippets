@@ -1,0 +1,49 @@
+snippet println "sys.out.println" b
+System.out.println("$1");
+$0
+endsnippet
+
+snippet print "sys.out.print" b
+System.out.print("$1");
+$0
+endsnippet
+
+snippet class "class dfn" b
+public class $1
+{
+    public $1($2)
+    {
+	
+    }
+
+    public static void main(String[] args)
+    {
+	
+    }$0
+}
+endsnippet
+
+snippet classmain "class with only a main method" b
+public class $1
+{
+    public static void main(String[] args)
+    {
+	
+    }
+}
+endsnippet
+
+snippet for "for loop" b
+for(int ${1:i}=${2:0}; $1 $3; $1${4:++})
+{
+    $5
+}
+$0
+endsnippet
+
+snippet meth "method dfn" b
+${1:public} ${2:static} ${3:void} $4($5)
+{
+    $0
+}
+endsnippet

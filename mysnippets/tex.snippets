@@ -1,0 +1,151 @@
+snippet beg "begin{} / end{}"
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+priority 1
+
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[$1\]
+$0
+endsnippet
+
+snippet sub "subscript" i
+_{$1}$0
+endsnippet
+
+snippet sup "superscript" i
+^{$1}$0
+endsnippet
+
+snippet frac "fraction" w
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet prenotes "default notes preamble" bA
+\\documentclass{article}
+%\\usepackage{amsmath}
+%\\usepackage{amssymb}
+
+%\\usepackage{minted}
+%\\usemintedstyle{emacs}
+%\\newminted[defenv]{$1}{linenos}
+%\\newmint[defmint]{$1}{}
+%\\newmintinline[defmintin]{$1}{}
+
+\\setlength{\\parindent}{0pt}
+\\setlength{\\parskip}{1em}
+\\title{$2}
+\\author{Rutvik Deo}
+\\date{$3}
+
+\begin{document}
+\maketitle
+$0
+\end{document}
+endsnippet
+
+snippet sum "sigma notation"
+\\sum_{$1=$2}^{$3}$0
+endsnippet
+
+snippet bf "bold text"
+\\textbf{$1}$0
+endsnippet
+
+snippet rm "normal text"
+\\textrm{$1}$0w
+endsnippet
+
+snippet lst "code listing" b
+\\begin{minted}{$1}
+$2
+\\end{minted}
+$0
+endsnippet
+
+snippet mint "one-line minted code" b
+\\mint{$1}{$2}
+$0
+endsnippet
+
+snippet mintin "inline minted code" i
+\\mintinline{$1}{$2}$0
+endsnippet
+
+snippet arrr "right arrow" iA
+\\rightarrow
+endsnippet
+
+snippet eq "equivalence" i
+\\equiv
+endsnippet
+
+snippet andd "logical and" A
+\\land
+endsnippet
+
+snippet orr "logical or" A
+\\lor
+endsnippet
+
+snippet forall "forall" iA
+\\forall
+endsnippet
+
+snippet exx "there exists" iA
+\\exists
+endsnippet
+
+snippet bar "bar" i
+\\bar{$1}$0
+endsnippet
+
+snippet hat "hat" i
+\\hat{$1}$0
+endsnippet
+
+snippet til "tilde" i
+\\tilde{$1}$0
+endsnippet
+
+priority 10
+
+snippet vbf "bracket visual text" i
+\\textbf\{${VISUAL}\}$0
+endsnippet
+
+snippet "([a-zA-Z])bar" "bar" ri
+\\bar{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "([a-zA-Z])hat" "hat" ri
+\\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "([a-zA-Z])til" "tilde" ri
+\\tilde{`!p snip.rv=match.group(1)`}
+endsnippet

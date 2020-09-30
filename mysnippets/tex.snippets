@@ -20,17 +20,16 @@ $0
 endsnippet
 
 snippet mk "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
+$${1}$$0`
+#!p
+#if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+#    snip.rv = ' '
+#else: 
+#    snip.rv = ''`
 endsnippet
 
 snippet dm "Math" wA
-\[$1\]
-$0
+\[$1\]$0
 endsnippet
 
 snippet sub "subscript" i
@@ -52,9 +51,6 @@ snippet prenotes "default notes preamble" bA
 
 %\\usepackage{minted}
 %\\usemintedstyle{emacs}
-%\\newminted[defenv]{$1}{linenos}
-%\\newmint[defmint]{$1}{}
-%\\newmintinline[defmintin]{$1}{}
 
 \\setlength{\\parindent}{0pt}
 \\setlength{\\parskip}{1em}
@@ -104,11 +100,11 @@ snippet eq "equivalence" i
 \\equiv
 endsnippet
 
-snippet andd "logical and" A
+snippet andd "logical and" wA
 \\land
 endsnippet
 
-snippet orr "logical or" A
+snippet orr "logical or" wA
 \\lor
 endsnippet
 
@@ -130,6 +126,14 @@ endsnippet
 
 snippet til "tilde" i
 \\tilde{$1}$0
+endsnippet
+
+snippet unionn "union" wA
+\\cup
+endsnippet
+
+snippet intersecc "intersection" wA
+\\cap
 endsnippet
 
 priority 10

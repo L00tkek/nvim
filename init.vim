@@ -33,6 +33,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 Plug 'preservim/nerdtree'
 
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -78,5 +80,7 @@ nnoremap <Right> <C-W><C-L>
 nnoremap <C-L> :bn<CR>
 nnoremap <C-H> :bp<CR>
 tnoremap <Esc> <C-\><C-n>
+
+nnoremap <C-G> :Goyo<CR>
 
 hi clear Conceal

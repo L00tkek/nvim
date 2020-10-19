@@ -56,8 +56,7 @@ snippet prenotes "default notes preamble" bA
 \\setlength{\\parskip}{1em}
 \\title{$2}
 \\author{Rutvik Deo}
-\\date{$3}
-
+\\date{${3:\\today}}
 \begin{document}
 \maketitle
 $0
@@ -92,7 +91,7 @@ snippet mintin "inline minted code" i
 \\mintinline{$1}{$2}$0
 endsnippet
 
-snippet arrr "right arrow" iA
+snippet arr "right arrow" i
 \\rightarrow
 endsnippet
 
@@ -128,12 +127,60 @@ snippet til "tilde" i
 \\tilde{$1}$0
 endsnippet
 
-snippet unionn "union" wA
+snippet union "union" w
 \\cup
 endsnippet
 
-snippet intersecc "intersection" wA
+snippet sect "intersection" w
 \\cap
+endsnippet
+
+snippet inn "belongs to" wA
+\\in
+endsnippet
+
+snippet noinn "doesn't belong to" wA
+\\notin
+endsnippet
+
+snippet empset "empty set" wA
+\\varnothing
+endsnippet
+
+snippet subsett "subset" wA
+\\subseteq
+endsnippet
+
+snippet nsubsett "not a subset" wA
+\\nsubseteq
+endsnippet
+
+snippet psubsett "proper subset" wA
+\\subset
+endsnippet
+
+snippet "(np|pn)subsett" "not a proper subset" rwA
+\\not\\subset
+endsnippet
+
+snippet supsett "superset" wA
+\\supseteq
+endsnippet
+
+snippet nsupsett "not a superset" wA
+\\nsupseteq
+endsnippet
+
+snippet psupsett "proper superset" wA
+\\supset
+endsnippet
+
+snippet "(np|pn)supsett" "not a proper superset" rwA
+\\not\\supset
+endsnippet
+
+snippet choose "choose" w
+\\binom{$1}{$2}$0
 endsnippet
 
 priority 10
@@ -152,4 +199,12 @@ endsnippet
 
 snippet "([a-zA-Z])til" "tilde" ri
 \\tilde{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "([a-zA-Z])(\.,|,\.)" "variable" rwA
+$`!p snip.rv=match.group(1)`$
+endsnippet
+
+snippet "([a-zA-Z]+)//" "backslash" rwA
+\\`!p snip.rv=match.group(1)`
 endsnippet

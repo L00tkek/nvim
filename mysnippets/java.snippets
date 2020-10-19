@@ -1,11 +1,9 @@
 snippet println "sys.out.println" b
 System.out.println("$1");
-$0
 endsnippet
 
 snippet print "sys.out.print" b
 System.out.print("$1");
-$0
 endsnippet
 
 snippet class "class dfn" b
@@ -23,7 +21,7 @@ public class $1
 }
 endsnippet
 
-snippet classmain "class with only a main method" b
+snippet "(classmain|mainclass)" "class with only a main method" rb
 public class $1
 {
     public static void main(String[] args)
@@ -34,7 +32,7 @@ public class $1
 endsnippet
 
 snippet for "for loop" b
-for(int ${1:i}=${2:0}; $1 $3; $1${4:++})
+for(int ${1:i} = ${2:0}; $1 $3; $1${4:++})
 {
     $5
 }
@@ -42,8 +40,29 @@ $0
 endsnippet
 
 snippet meth "method dfn" b
-${1:public} ${2:static} ${3:void} $4($5)
+${1:public} ${2:static} ${3:void} ${4:method}($5)
 {
     $0
 }
+endsnippet
+
+snippet scan "scanner" b
+Scanner ${1:scan} = new Scanner(System.in);
+endsnippet
+
+snippet new "new obj" b
+${1:Object} ${2:obj} = new $1($4);
+endsnippet
+
+snippet {} "brackets" wA
+{
+    $0
+}
+endsnippet
+
+snippet precomment "comments at beginning for assignments" bA
+//Rutvik Deo
+//CS 1400
+//Assignment $1
+//${2:Month} ${3:Day}, ${4:Year}
 endsnippet

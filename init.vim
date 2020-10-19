@@ -35,6 +35,9 @@ Plug 'preservim/nerdtree'
 
 Plug 'junegunn/goyo.vim'
 
+Plug 'neovimhaskell/haskell-vim', {'for': 'hs'}
+let g:haskell_enable_typeroles = 1
+
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -79,7 +82,9 @@ nnoremap <Left> <C-W><C-H>
 nnoremap <Right> <C-W><C-L>
 nnoremap <C-L> :bn<CR>
 nnoremap <C-H> :bp<CR>
+
 tnoremap <Esc> <C-\><C-n>
+tnoremap <S-Space> <Space>
 
 nnoremap <C-G> :Goyo<CR>
 

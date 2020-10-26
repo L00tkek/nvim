@@ -1,0 +1,21 @@
+snippet print "print" b
+std::cout << $1;
+endsnippet
+
+snippet println "print w/ newline" b
+std::cout << $1 << ${2:"\n"};
+endsnippet
+
+snippet input "take input" b
+std::cin >> $1;
+endsnippet
+
+snippet {} "brackets" wA
+{
+    $1
+}
+endsnippet
+
+snippet inc "include" b
+#include <$1>
+endsnippet

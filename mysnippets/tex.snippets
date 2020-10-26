@@ -1,3 +1,18 @@
+snippet sec "section" b
+\\section{$1}
+$0
+endsnippet
+
+snippet subsec "subsection" b
+\\subsection{$1}
+$0
+endsnippet
+
+snippet subsub "subsubsection" b
+\\subsubsection{$1}
+$0
+endsnippet
+
 snippet beg "begin{} / end{}"
 \begin{$1}
 $0
@@ -127,11 +142,11 @@ snippet til "tilde" i
 \\tilde{$1}$0
 endsnippet
 
-snippet union "union" w
+snippet cupp "union" wA
 \\cup
 endsnippet
 
-snippet sect "intersection" w
+snippet capp "intersection" wA
 \\cap
 endsnippet
 
@@ -181,6 +196,18 @@ endsnippet
 
 snippet choose "choose" w
 \\binom{$1}{$2}$0
+endsnippet
+
+snippet int "integral" w
+\\int_{${1:-\\infty}}^{${2:\\infty}}$0
+endsnippet
+
+snippet {} "brackets" i
+\\{$1\\}$0
+endsnippet
+
+snippet [] "brackets II" i
+\\left[$1\\right]
 endsnippet
 
 priority 10

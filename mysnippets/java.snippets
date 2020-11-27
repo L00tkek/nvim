@@ -7,10 +7,11 @@ System.out.print("$1");
 endsnippet
 
 snippet class "class dfn" b
-public class $1
+public class $1 extends ${2:Object}
 {
-    $2
-    public $1($3)
+    $3
+
+    public $1($4)
     {
 	$0
     }
@@ -48,7 +49,7 @@ ${1:public} ${2:static} ${3:void} ${4:method}($5)
 endsnippet
 
 snippet scan "scanner" b
-Scanner ${1:scan} = new Scanner(System.in);
+Scanner ${1:scan} = new Scanner(${2:System.in});
 endsnippet
 
 snippet new "new obj" b
@@ -78,4 +79,9 @@ public void set$2($1 ${4:val})
 {
     this.$3 = $4;
 }
+endsnippet
+
+snippet testgetset "create tests for getters/setters" b
+${1:object}.set${2:Field}(${3:value});
+$1.get$2();
 endsnippet

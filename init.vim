@@ -83,6 +83,8 @@ nnoremap <Right> <C-W><C-L>
 nnoremap <C-L> :bn<CR>
 nnoremap <C-H> :bp<CR>
 
+nnoremap <CR> o<CR>
+
 tnoremap <Esc> <C-\><C-n>
 tnoremap <S-Space> <Space>
 

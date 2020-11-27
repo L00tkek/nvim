@@ -1,3 +1,4 @@
+"init.vim for nvim, not base vim
 set nocompatible
 filetype indent plugin on
 syntax on

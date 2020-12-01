@@ -67,7 +67,9 @@ set splitbelow splitright
 vnoremap <C-c> "+y
 map <C-v> "+P
 
-set backspace=indent,eol,start
+set backspace=indent,eol
+
+set termguicolors
 
 "colorscheme moonlight 
 "colorscheme monokai 

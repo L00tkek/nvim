@@ -134,7 +134,7 @@ snippet exx "there exists" iA
 endsnippet
 
 snippet bar "bar" i
-\\bar{$1}$0
+\\overline{$1}$0
 endsnippet
 
 snippet hat "hat" i
@@ -221,6 +221,14 @@ snippet sqrt "square root" iA
 \\sqrt{$1}$0
 endsnippet
 
+snippet ceil "ceiling" i
+\\left\\lceil $1 \\right\\rceil$0
+endsnippet
+
+snippet floor "floor" i
+\\left\\lfloor $1 \\right\\rfloor$0
+endsnippet
+
 priority 10
 
 snippet vbf "bracket visual text" i
@@ -228,7 +236,7 @@ snippet vbf "bracket visual text" i
 endsnippet
 
 snippet "([a-zA-Z])bar" "bar" ri
-\\bar{`!p snip.rv=match.group(1)`}
+\\overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
 snippet "([a-zA-Z])hat" "hat" ri

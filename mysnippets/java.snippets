@@ -85,3 +85,16 @@ snippet testgetset "create tests for getters/setters" b
 ${1:object}.set${2:Field}(${3:value});
 $1.get$2();
 endsnippet
+
+snippet debug "creates debug statement" b
+if(${1:DEBUG})
+{
+    System.out.println($0);
+}
+endsnippet
+
+snippet /** "creates javadoc" b
+/**
+  $1
+  */$0
+endsnippet

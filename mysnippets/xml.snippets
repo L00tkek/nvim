@@ -1,0 +1,10 @@
+snippet dependency "creates a new maven dependency" b
+<dependency>
+    <groupId>$1</groupId>
+    <artifactId>$2</artifactId>
+    <version>$3</version>
+    <type>${4:jar}</type>
+    <scope>$5</scope>
+    <optional>$6</optional>
+</dependency>$0
+endsnippet

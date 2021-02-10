@@ -59,6 +59,10 @@ snippet frac "fraction" w
 \\frac{$1}{$2}$0
 endsnippet
 
+snippet == "align equals" w
+&=
+endsnippet
+
 snippet prenotes "default notes preamble" bA
 \\documentclass{article}
 %\\usepackage{amsmath}
@@ -74,6 +78,42 @@ snippet prenotes "default notes preamble" bA
 \\date{${3:\\today}}
 \begin{document}
 \maketitle
+
+$0
+\end{document}
+endsnippet
+
+snippet premain "default mainfile preamble" bA
+\\documentclass[notitlepage, oneside, openany]{report}
+\\usepackage{amsmath}
+\\usepackage{amssymb}
+
+%\\usepackage{minted}
+%\\usemintedstyle{emacs}
+
+\\usepackage{titlesec}
+\\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge\bf}
+\\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+
+\\usepackage{subfiles}
+
+\\setlength{\parindent}{0pt}
+\\setlength{\parskip}{1em}
+\\title{$1}
+\\author{Rutvik Deo}
+\\date{\today}
+\\begin{document}
+\\maketitle
+
+$0
+\\end{document}
+endsnippet
+
+snippet presub "default subfile preamble" bA
+\\documentclass[${1:../main.tex}]{subfiles}
+
+\begin{document}
+
 $0
 \end{document}
 endsnippet

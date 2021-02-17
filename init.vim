@@ -64,10 +64,10 @@ set expandtab
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set splitbelow splitright
 
-vnoremap <C-c> "+y
-map <C-v> "+P
+"vnoremap <C-c> "+y
+"map <C-v> "+P
 
-set backspace=indent,eol
+set backspace=indent,eol,start
 
 set termguicolors
 

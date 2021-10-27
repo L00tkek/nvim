@@ -7,5 +7,43 @@ snippet precomment "pre comment"
 #
 #   Description: ${3:desc}
 #
+    .data
+    .text
+main:
+    $0
+endsnippet
+
+snippet print "print a string"
+la      $a0, $1		    #print $2
+li      $v0, 4          
+syscall
+$0
+endsnippet
+
+snippet printi "print an integer"
+la      $a0, $1		    #print $2
+li      $v0, 1          
+syscall
+$0
+endsnippet
+
+snippet nln "print newline"
+la	$a0, '\n'	    #print newline
+li	$v0, 11
+syscall
+$0
+endsnippet
+
+snippet readint "read integer"
+li	$v0, 5		    #read integer
+syscall
+move	$1, $v0
+$0
+endsnippet
+
+snippet end "end execution"
+end:
+    li      $v0, 10         #exit
+    syscall
 $0
 endsnippet

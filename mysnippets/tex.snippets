@@ -53,9 +53,13 @@ snippet d/dx "derivative" i
 \\frac{d${1:y}}{d${2:x}}$0
 endsnippet
 
-snippet 1/2 "half" i
-\\frac{1}{2}
+snippet "(\d+)\/(\d+)" "numerical fractions" ri
+\frac{`!p snip.rv=match.group(1)`}{`!p snip.rv=match.group(2)`}
 endsnippet
+
+#snippet " *(.*) &= (.*?)(\\\\)?? *!!" "swap places" rA
+#    `!p snip.rv=match.group(2)` &= `!p snip.rv=match.group(1)`\\\\
+#endsnippet
 
 snippet box "Box"
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
@@ -81,8 +85,8 @@ snippet __ "subscript" iA
 _{$1}$0
 endsnippet
 
-snippet _net "subscript net" iA
-_{\\text{net}}
+snippet _! "subscript net" iA
+_{\\text{${1:net}}}
 endsnippet
 
 snippet ^^ "superscript" iA
@@ -110,7 +114,7 @@ snippet prenotes "default notes preamble" bA
 %\\usemintedstyle{emacs}
 
 %\\usepackage{graphicx}
-%\\graphicspath{{./images}}
+%\\graphicspath{{.}}
 
 \\setlength{\\parindent}{0pt}
 \\setlength{\\parskip}{1em}
@@ -125,7 +129,7 @@ $0
 endsnippet
 
 snippet siunitx "siunitx setup" b
-\\usepackage[group-digits = integer]{siunitx}
+\\usepackage[group-digits = false]{siunitx}
 \\sisetup{per-mode = symbol}
 %\\DeclareSIUnit\\mile{mi}
 %\\DeclareSIUnit\\yard{yd}
@@ -220,6 +224,10 @@ snippet -> "right arrow" iA
 \\rightarrow
 endsnippet
 
+snippet \rightarrow "add an align" i
+&\\rightarrow 
+endsnippet
+
 snippet => "big right arrow" iA
 \\Rightarrow
 endsnippet
@@ -257,7 +265,7 @@ snippet til "tilde" i
 endsnippet
 
 snippet vec "vector" i
-\\vec{$1}$0
+\\overrightarrow{$1}$0
 endsnippet
 
 snippet cupp "union" wA
@@ -344,6 +352,10 @@ snippet "(\|\||abs)" "absolute value" ri
 \\left|$1\\right|$0
 endsnippet
 
+snippet |? "mid" i
+\\mid
+endsnippet
+
 snippet bb "mathbb" w
 \\mathbb{$1}
 endsnippet
@@ -399,7 +411,7 @@ snippet "([a-zA-Z])til" "tilde" ri
 endsnippet
 
 snippet "([a-zA-Z])vec" "vector" ri
-\\vec{`!p snip.rv=match.group(1)`}
+\\overrightarrow{`!p snip.rv=match.group(1)`}
 endsnippet
 
 snippet "([a-zA-Z])(\.,|,\.)" "variable" rwA

@@ -3,8 +3,18 @@ snippet sec "section" b
 $0
 endsnippet
 
+snippet sec* "section star" b
+\\section*{$1}
+$0
+endsnippet
+
 snippet subsec "subsection" b
 \\subsection{$1}
+$0
+endsnippet
+
+snippet subsec* "subsection" b
+\\subsection*{$1}
 $0
 endsnippet
 
@@ -15,7 +25,7 @@ endsnippet
 
 snippet beg "begin{} / end{}" w
 \begin{$1}
-$0
+	$0
 \end{$1}
 endsnippet
 
@@ -23,7 +33,7 @@ priority 1
 
 snippet beg "begin{} / end{}" bA
 \begin{$1}
-$0
+	$0
 \end{$1}
 endsnippet
 
@@ -43,6 +53,16 @@ snippet numbered "numbered list" bA
 \begin{enumerate}
     \item $0
 \end{enumerate}
+endsnippet
+
+snippet lettered "letters list" b
+\begin{enumerate}[label=\\alph*.]
+    \item $0
+\end{enumerate}
+endsnippet
+
+snippet rule "rule" b
+\\noindent\\rule{\\textwidth}{0.4pt}
 endsnippet
 
 snippet "    \*\*" "item" rA
@@ -109,12 +129,17 @@ snippet prenotes "default notes preamble" bA
 \\documentclass{article}
 \\usepackage{amsmath}
 \\usepackage{amssymb}
+\\usepackage{enumitem}
+\\usepackage{graphicx}
+\\graphicspath{{.}}
 
-%\\usepackage{minted}
-%\\usemintedstyle{emacs}
-
-%\\usepackage{graphicx}
-%\\graphicspath{{.}}
+\\usepackage{amsthm}
+\\DeclareMathSymbol{\\til}{\\mathord}{symbols}{"18}
+\\theoremstyle{definition}
+\\newtheorem*{statement}{Statement}
+\\newtheorem{lemma}{Lemma}
+\\renewcommand\\qedsymbol{$\\blacksquare$}
+\\usepackage[capitalize, noabbrev]{cleveref}
 
 \\setlength{\\parindent}{0pt}
 \\setlength{\\parskip}{1em}
@@ -189,12 +214,20 @@ snippet bf "bold text" i
 \\textbf{$1}$0
 endsnippet
 
+snippet bfm "bolw math text" i
+\\mathbf{$1}$0
+endsnippet
+
 snippet it "italic text" w
 \\textit{$1}$0
 endsnippet
 
 snippet rm "normal text" i
 \\text{$1}$0
+endsnippet
+
+snippet tt "typewriter text" i
+\\texttt{$1}$0
 endsnippet
 
 snippet inter "intertext" b
@@ -224,8 +257,24 @@ snippet -> "right arrow" iA
 \\rightarrow
 endsnippet
 
-snippet \rightarrow "add an align" i
-&\\rightarrow 
+snippet <- "left arrow" iA
+\\leftarrow
+endsnippet
+
+snippet onto "onto arrow" i
+\\xrightarrow{\\text{onto}}
+endsnippet
+
+snippet 1--1 "1--1 arrow" i
+\\xrightarrow{\\text{1--1}}
+endsnippet
+
+#snippet \rightarrow "add an align" i
+#&\\rightarrow 
+#endsnippet
+
+snippet <>- "leftright arrow" iA
+\\leftrightarrow
 endsnippet
 
 snippet => "big right arrow" iA
@@ -268,15 +317,27 @@ snippet vec "vector" i
 \\overrightarrow{$1}$0
 endsnippet
 
+snippet =/= "not equal" iA
+\neq
+endsnippet
+
 snippet cupp "union" wA
 \\cup
+endsnippet
+
+snippet bigcup "big union" w
+\\displaystyle\\bigcup
 endsnippet
 
 snippet capp "intersection" wA
 \\cap
 endsnippet
 
-snippet inn "belongs to" wA
+snippet bigcap "big intersection" w
+\\displaystyle\\bigcap
+endsnippet
+
+snippet inn "belongs to" w
 \\in
 endsnippet
 
@@ -337,7 +398,7 @@ snippet {} "brackets" i
 endsnippet
 
 snippet [] "brackets II" i
-\\left[$1\\right]
+\\left[$1\\right]$0
 endsnippet
 
 snippet <> "vector brackets" i
@@ -356,8 +417,24 @@ snippet |? "mid" i
 \\mid
 endsnippet
 
+snippet "bb([a-zA-Z])" "quick bb" rw
+\\mathbb{`!p snip.rv=match.group(1).upper()`}
+endsnippet
+
 snippet bb "mathbb" w
 \\mathbb{$1}
+endsnippet
+
+snippet "cal([a-zA-Z])" "quick cal" rw
+\\mathcal{`!p snip.rv=match.group(1).upper()`}
+endsnippet
+
+snippet cal "mathcal" w
+\\mathcal{$1}
+endsnippet
+
+snippet pset "power set" w
+\\mathcal{P}($1)$0
 endsnippet
 
 snippet sqrt "square root" i
@@ -394,7 +471,7 @@ snippet vsi "add visual to a unit" i
 \\SI{${VISUAL}}{$1}$0
 endsnippet
 
-snippet D "delta" i
+snippet del "delta" i
 \\Delta 
 endsnippet
 
@@ -420,4 +497,16 @@ endsnippet
 
 snippet "([a-zA-Z]+)//" "backslash" rwA
 \\`!p snip.rv=match.group(1)`
+endsnippet
+
+snippet tikz "tikz figure" b
+\begin{center}
+	\begin{tikzpicture}
+		\node[state, initial] (q0) {$q_0$};
+		$1
+
+		\draw $0
+			;
+	\end{tikzpicture}
+\end{center}
 endsnippet
